@@ -11,328 +11,120 @@ type="text/css" rel="Stylesheet" />
 hosted on Google's Ajax CDN-->
 <script src="jquery.localscroll-1.2.7-min.js" type="text/javascript"></script> 
 <script src="jquery.scrollTo-1.4.3.1-min.js" type="text/javascript"></script> 
+<script type="text/javascript" src="portfolio.js"></script>
 </head>
 <body>
 
 <!--Header-->
-<div id="header">
-	<img id="uxDesign" height="15px" src="uxDesign.png" alt="UX Design" /><br><br><br><br>
-	<!--<img src="TheMindOf.png" alt="The Mind Of" />-->
-	<img id="bestDesignerEver" height="55px;" src="MartinSchoenLogo.png" alt="MARTIN SCHOEN" />
-	<a href="#about"><img id="bdeHover" height="55px;" src="MartinSchoenSelected.png" alt="martin schoen" /></a>
-	<!--<div class="divider"></div>-->
-</div>
+<section id="header">
+	<div class="col2">
+		<img id="ux-design" src="images/ux-design.png" alt="UX Design" />
+		<img id="best-designer-ever" src="images/martin-schoen-logo.png" alt="Martin Schoen" />
+		<a href="#about"><img id="best-designer-ever-hover" src="images/martin-schoen-selected.png" alt="Martin Schoen" /></a>
+	</div>
+</section>
 
 <!--Navigation-->
-<div id="navAnchor"></div>
-<div id="navigationGroup">
-	<div class="navigation" id="navigation1">
+<div id="nav-anchor"></div>
+<section id="navigation-bar">
+	<div class="nav" id="nav1">
 		<a href="#img1">
-			<img class="navTitle" id="navTitle1" style="width:80px;" src="Title1.png" />
-			<span class="highlight" ></span><img class="nav " id="nav1" src="Portfolio1A.jpg" />
+			<img class="nav-title" id="nav-title1" src="images/title1.png" />
+			<span class="highlight" ></span><img class="nav-img" id="nav-img1" src="images/portfolio-nav1.jpg" />
 		</a>
 	</div>
-	<div class="navigation" id="navigation2">
+	<div class="nav" id="nav2">
 		<a href="#img2">
-			<img class="navTitle" id="navTitle2" style="width:93px;" src="Title2.png" />
-			<span class="highlight" ></span><img class="nav " id="nav2" src="Portfolio2A.jpg" />
+			<img class="nav-title" id="nav-title2" src="images/title2.png" />
+			<span class="highlight" ></span><img class="nav-img" id="nav-img2" src="images/portfolio-nav2.jpg" />
 		</a>
 	</div>
-	<div class="navigation" id="navigation3">
+	<div class="nav" id="nav3">
 		<a href="#img3">
-			<img class="navTitle " id="navTitle3" style="width:134px;" src="Title3.png" />
-			<span class="highlight" ></span><img class="nav " id="nav3" src="Portfolio3A.jpg" />
+			<img class="nav-title" id="nav-title3" src="images/title3.png" />
+			<span class="highlight" ></span><img class="nav-img" id="nav-img3" src="images/portfolio-nav3.jpg" />
 		</a>
 	</div>
-	<div class="navigation" id="navigation4">
+	<div class="nav" id="nav4">
 		<a href="#img4">
-			<img class="navTitle " id="navTitle4" style="width:89px;"  src="Title4.png" />
-			<span class="highlight" ></span><img class="nav " id="nav4" src="Portfolio4A.jpg" />
+			<img class="nav-title" id="nav-title4" src="images/title4.png" />
+			<span class="highlight" ></span><img class="nav-img" id="nav-img4" src="images/portfolio-nav4.jpg" />
 		</a>
 	</div>
-	<div class="navigation" id="navigation5">
+	<div class="nav" id="nav5">
 		<a href="#img5">
-			<img class="navTitle " id="navTitle5" style="width:36px;" src="Title5.png" />
-			<span class="highlight" ></span><img class="nav " id="nav5" src="Portfolio5A.jpg" />
+			<img class="nav-title" id="nav-title5" src="images/title5.png" />
+			<span class="highlight" ></span><img class="nav-img" id="nav-img5" src="images/portfolio-nav5.jpg" />
 		</a>
 	</div>
-	<div class="navigation" id="navigation6">
+	<div class="nav" id="nav6">
 		<a href="#img6">
-			<img class="navTitle " id="navTitle6" style="width:38px;"  src="Title6.png" />
-			<span class="highlight" ></span><img class="nav " id="nav6" src="Portfolio6A.jpg" />
+			<img class="nav-title" id="nav-title6" src="images/title6.png" />
+			<span class="highlight" ></span><img class="nav-img" id="nav-img6" src="images/portfolio-nav6.jpg" />
 		</a>
 	</div>
-	<div class="navigation" id="navigation7">
+	<div class="nav" id="nav7">
 		<a href="#img7">
-			<img class="navTitle " id="navTitle7" style="width:120px;"  src="Title7.png" />
-			<span class="highlight" ></span><img class="nav " id="nav7" src="Portfolio7A.jpg" />
+			<img class="nav-title" id="nav-title7" src="images/title7.png" />
+			<span class="highlight" ></span><img class="nav-img" id="nav-img7" src="images/portfolio-nav7.jpg" />
 		</a>
 	</div>
-	<div class="navigation" id="navigation8">
+	<div class="nav" id="nav8">
 		<a href="#img8">
-			<img class="navTitle " id="navTitle8" style="width:46px;" src="Title8.png" />
-			<span class="highlight" ></span><img class="nav " id="nav8" src="Portfolio8A.jpg" />
+			<img class="nav-title" id="nav-title8" src="images/title8.png" />
+			<span class="highlight" ></span><img class="nav-img" id="nav-img8" src="images/portfolio-nav8.jpg" />
 		</a>
 	</div>
-	<div class="navigation" id="navigation9">
+	<div class="nav" id="nav9">
 		<a href="#img9">
-			<img class="navTitle " id="navTitle9" style="width:66px;"  src="Title9.png" />
-			<span class="highlight" ></span><img class="nav " id="nav9" src="Portfolio9A.jpg" />
+			<img class="nav-title" id="nav-title9" src="images/title9.png" />
+			<span class="highlight" ></span><img class="nav-img" id="nav-img9" src="images/portfolio-nav9.jpg" />
 		</a>
 	</div>
-	<div class="navigation" id="navigation10" style="margin-bottom: -5px;">
-		<a href="#img10" >
-			<img class="navTitle " id="navTitle10"  style="width:97px;" src="Title10.png" />
-			<span class="highlight" ></span><img class="nav " id="nav10" src="Portfolio10A.jpg" />
+	<div class="nav" id="nav10">
+		<a href="#img10">
+			<img class="nav-title" id="nav-title10" src="images/title10.png" />
+			<span class="highlight" ></span><img class="nav-img" id="nav-img10" src="images/portfolio-nav10.jpg" />
 		</a>
 	</div>
-</div>
+	
+</section>
 	
 <!--Portfolio-->
-<div id="portfolio">
-		<!--Image 1-->
-		<div class="images">
-			<img id="img1" class="portfolioImg" src="Portfolio1.jpg" />
+<section id="portfolio">
+		<!--Image-->
+		<div class="piece">
+			<img id="img1" class="portfolio-img" src="images/portfolio1.jpg" />
+			<div class="caption">
+				<!--Title-->
+				<img class="title" src="images/title1.png" />
+				<img class="expand" src="images/expand.png" />
+				<img class="contract" src="images/contract.png" />
+				<!--Description-->
+				<br>
+				<p class="description">I used ink to explore complete figments of my imagination in 
+				a series of pieces that look like a visualization of stream of consciousness. My sketchpad at its finest.</p>
+			</div>
+			<div class="divider"></div>
 		</div>
-		<!--Title-->
-		<img class="title" src="Title1.png" />
-		<img class="expand" src="Expand.png" />
-		<img class="contract" src="Contract.png" />
-		<!--Description-->
-		<br>
-		<p class="description">I used ink to explore complete figments of my imagination in 
-		a series of pieces that look like a visualization of stream of consciousness. My sketchpad at its finest.</p>
-		<div class="divider"></div>
-		
-		<!--Image 2-->
-		<div class="images">
-			<img id="img2" class="portfolioImg" src="Portfolio2.jpg" />
+
+		<div class="piece">
+			<img id="img2" class="portfolio-img" src="images/portfolio2.jpg" />
+			<div class="caption">
+				<!--Title-->
+				<img class="title" src="images/title2.png" />
+				<img class="expand" src="images/expand.png" />
+				<img class="contract" src="images/contract.png" />
+				<!--Description-->
+				<br>
+				<p class="description">I used ink to explore complete figments of my imagination in 
+				a series of pieces that look like a visualization of stream of consciousness. My sketchpad at its finest.</p>
+			</div>
+			<div class="divider"></div>
 		</div>
-		<!--Title-->
-		<img class="title" src="Title2.png" />
-		<img class="expand" src="Expand.png" />
-		<img class="contract" src="Contract.png" />
-		<!--Description-->
-		<br><br>
-		<p class="description">Social Pool is an experiment with applications. It is a simple and
-		fun way to communicate with a group of friends whenever you want. The ultimate hang-out accessory.</p>
-		<div class="divider"></div>
-		
-		<!--Image 3-->
-		<div class="images">
-			<img id="img3" class="portfolioImg" src="Portfolio3.jpg" />
-		</div>
-		<!--Title-->
-		<img class="title" src="Title3.png" />
-		<img class="expand" src="Expand.png" />
-		<img class="contract" src="Contract.png" />
-		<!--Description-->
-		<br><br>
-		<p class="description">Worthalter Realtor, Inc. is a real estate firm in Miami. I designed and implemented all facets of the site
-		including an interactive image viewer, blog, and embedded map. The site is archived <a class="links" href="">here.</a></p>
-		<div class="divider"></div>
-		
-		<!--Image 4-->
-		<div class="images">
-			<img id="img4" class="portfolioImg" src="Portfolio4.jpg" />
-		</div>
-		<!--Title-->
-		<img class="title" src="Title4.png" />
-		<img class="expand" src="Expand.png" />
-		<img class="contract" src="Contract.png" />
-		<!--Description-->
-		<br><br>
-		<p class="description">An interpretation of a city skyline in its most primative form, enveloped in a blanket of light with a single tree in the foreground. Oil paint.</p>
-		<div class="divider"></div>
-		
-		<!--Image 5-->
-		<div class="images">
-			<img id="img5" class="portfolioImg" src="Portfolio5.jpg" />
-		</div>
-		<!--Title-->
-		<img class="title" src="Title5.png" />
-		<img class="expand" src="Expand.png"  style="margin-right: 50px;"/>
-		<img class="contract" src="Contract.png"  style="margin-right: 50px;"/>
-		<!--Description-->
-		<br><br>
-		<p class="description">A simple experiment with combining visuals and typography. Ink on paper.</p>
-		<div class="divider"></div>
-		
-		<!--Image 6-->
-		<div class="images">
-			<img id="img6" class="portfolioImg" src="Portfolio6.jpg" />
-		</div>
-		<!--Title-->
-		<img class="title" src="Title6.png"/>
-		<img class="expand" src="Expand.png"  style="margin-right: 50px;"/>
-		<img class="contract" src="Contract.png"  style="margin-right: 50px;"/>
-		<!--Description-->
-		<br />
-		<p class="description">A mixed media interpretation of the fastest man on earth, Usain Bolt. I aimed to capture his speed, personality, and 
-		expression as he flies down the track. Guache and pastel on illustration board.</p>
-		<div class="divider"></div>
-		
-		<!--Image 7-->
-		<div class="images">
-			<img id="img7" class="portfolioImg" src="Portfolio7.jpg" />
-		</div>
-		<!--Title-->
-		<img class="title" src="Title7.png" />
-		<img class="expand" src="Expand.png" />
-		<img class="contract" src="Contract.png" />
-		<!--Description-->
-		<br><br>
-		<p class="description">Self portraits of me doing absolutely nothing from my early high school years. Charcoal and prismacolor, respectively.</p>
-		<div class="divider"></div>
-		
-		<!--Image 8-->
-		<div class="images">
-			<img id="img8" class="portfolioImg" src="Portfolio8.jpg" />
-		</div>
-		<!--Title-->
-		<img class="title" src="Title8.png" />
-		<img class="expand" src="Expand.png"  style="margin-right: 50px;"/>
-		<img class="contract" src="Contract.png"  style="margin-right: 50px;"/>
-		<!--Description-->
-		<br><br>
-		<p class="description">An abstraction of controvertial performer, Lil Wayne. A fun experiment fo a style I usually don't do. Guache and ink.</p>
-		<div class="divider"></div>
-		
-		<!--Image 9-->
-		<div class="images">
-			<img id="img9" class="portfolioImg" src="Portfolio9.jpg" />
-		</div>
-		<!--Title-->
-		<img class="title" src="Title9.png" />
-		<img class="expand" src="Expand.png" />
-		<img class="contract" src="Contract.png" />
-		<!--Description-->
-		<br><br>
-		<p class="description">My personal favorite, a collection of things that matter in my life in a warm and striking color palette. Guache and ink.</p>
-		<div class="divider"></div>
-		
-		<!--Image 10-->
-		<div class="images">
-			<img id="img10" class="portfolioImg" src="Portfolio10.jpg" />
-		</div>
-		<!--Title-->
-		<img class="title" src="Title10.png" />
-		<img class="expand" src="Expand.png" />
-		<img class="contract" src="Contract.png" />
-		<!--Description-->
-		<br><br>
-		<p class="description">Music is great. Although I think it's impossible to harness its full awesomeness, I think this is a pretty good attempt. Guache and ink.</p>
-		<div class="divider"></div>
-<div>
+</section>
 
 
-
-<script type="text/javascript">
-$(document).ready(function(){
-	$.localScroll({duration:800});
-	$("#bestDesignerEver").hover( function(event){
-		$(this).hide();
-		$("#bdeHover").show();
-	});
-	
-	$("#bdeHover").mouseout( function(event){
-		$(this).hide();
-		$("#bestDesignerEver").show();
-	});
-	
-	$(".expand").click(toggleDescription);
-	
-	$(".contract").click(toggleDescription);
-	
-	$(".title").click(toggleDescription);
-	
-	function toggleDescription(){
-		$(".expand").toggle();
-		$(".contract").toggle();
-		$(".description").slideToggle();
-	}
-	
-	
-	moveScroller();
-	
-	function moveScroller() {
-		var move = function() {
-			var st = $(window).scrollTop();
-			var ot = $("#navAnchor").offset().top;
-			var s = $("#navigationGroup");
-			if(st > ot) {
-				s.css({
-					position: "fixed",
-					top: "0px"
-				});
-			} else {
-				if(st <= ot) {
-					s.css({
-						position: "relative",
-						top: ""
-					});
-				}
-			}
-		};
-		$(window).scroll(move);
-		move();
-	}
-	
-	
-	var h = $(window).height(); 
-	var w = $(window).width(); 
-	var col1 = 530;
-	var col2 = 400;
-	var col3 = 60;
-	for(var i = 1; i < 11; i++){
-		$("#navTitle"+i).css("margin-left", w/2-col1-$("#navTitle"+i).width());
-	}
-	
-	
-	$(".nav").css("margin-left", w/2-col1);
-	$(".highlight").css("margin-left", w/2-col1);
-	$("#uxDesign").css("margin-left", w/2-col2);
-	$("#bestDesignerEver").css("margin-left", w/2-col2);
-	$("#bdeHover").css("margin-left", w/2-col2);
-	$(".images").css("margin-left", w/2-col2);
-	$(".divider").css("margin-left", w/2-col2);
-	$(".title").css("margin-left", col3);
-	$(".description").css("margin-left", col3);
-	
-	$("#navigation1").hover( function(event){
-		$("#navTitle1").toggle();
-	});
-	$("#navigation2").hover( function(event){
-		$("#navTitle2").toggle();
-	});
-	$("#navigation3").hover( function(event){
-		$("#navTitle3").toggle();
-	});
-	$("#navigation4").hover( function(event){
-		$("#navTitle4").toggle();
-	});
-	$("#navigation5").hover( function(event){
-		$("#navTitle5").toggle();
-	});
-	$("#navigation6").hover( function(event){
-		$("#navTitle6").toggle();
-	});
-	$("#navigation7").hover( function(event){
-		$("#navTitle7").toggle();
-	});
-	$("#navigation8").hover( function(event){
-		$("#navTitle8").toggle();
-	});
-	$("#navigation9").hover( function(event){
-		$("#navTitle9").toggle();
-	});
-	$("#navigation10").hover( function(event){
-		$("#navTitle10").toggle();
-	});
-	
-});
-
-</script>
 
 </body>
 </html>
