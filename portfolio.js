@@ -1,29 +1,27 @@
 $(document).ready(function(){
 
 
+	var $bde = $("#best-designer-ever");
+	var $bde_hover = $("#best-designer-ever-hover");
 
-	// $.localScroll({duration:800});
-	// $("#bestDesignerEver").hover( function(event){
-	// 	$(this).hide();
-	// 	$("#bdeHover").show();
-	// });
+	$.localScroll({duration:800});
+	$bde.hover( function(event){
+		$(this).hide();
+		$bde_hover.show();
+	});
 	
-	// $("#bdeHover").mouseout( function(event){
-	// 	$(this).hide();
-	// 	$("#bestDesignerEver").show();
-	// });
+	$bde_hover.mouseout( function(event){
+		$(this).hide();
+		$bde.show();
+	});
 	
-	// $(".expand").click(toggleDescription);
+	$(".expand, .contract, .title").click(toggleDescription);
 	
-	// $(".contract").click(toggleDescription);
-	
-	// $(".title").click(toggleDescription);
-	
-	// function toggleDescription(){
-	// 	$(".expand").toggle();
-	// 	$(".contract").toggle();
-	// 	$(".description").slideToggle();
-	// }
+	function toggleDescription(){
+		$(".expand").css('transform', 'rotate(-180deg)');
+		//$(".contract").toggle();
+		$(".description").slideToggle();
+	}
 	
 	
 	// moveScroller();

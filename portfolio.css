@@ -86,7 +86,8 @@ body{
 	filter: alpha(opacity=0);
 }
 
-#nav-title1 {
+#nav-title1 & .nav-img:hover {
+	display: block;
 	width: 80px;
 }
 
@@ -158,9 +159,11 @@ body{
 
 .expand{
 	height: 12px;
-	padding-left: 18px;
-	padding-top: 8px;
-	margin-bottom: 8px;
+	padding: 8px 18px;
+	/*-webkit-transition: -webkit-tranform ease-out 1s;
+    -moz-transition: -moz-transform 500ms ease-out 1s;
+    -o-transition: -o-transform 500ms ease-out 1s;*/
+    transition: all 1s;
 }
 
 .contract{
@@ -176,7 +179,7 @@ body{
 }
 
 .description{
-	//display: none;
+	display: none;
 	margin-top: 15px;
 	margin-bottom: 0;
 	text-align: left;
