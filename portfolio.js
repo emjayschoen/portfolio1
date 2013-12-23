@@ -52,6 +52,12 @@ $(document).ready(function(){
 	$("#nav-ink-series").hover( function(event){
 		$("#nav-title-ink-series").toggle();
 	});
+	$("#nav-findthebest").hover( function(event){
+		$("#nav-title-findthebest").toggle();
+	});
+	$("#nav-eat-local").hover( function(event){
+		$("#nav-title-eat-local").toggle();
+	});
 	$("#nav-social-pool").hover( function(event){
 		$("#nav-title-social-pool").toggle();
 	});

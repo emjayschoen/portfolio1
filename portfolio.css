@@ -5,7 +5,7 @@ body{
 
 .col2, #intro {
 	position: relative;
-	left: 280px;
+	padding-left: 280px;
 }
 
 @font-face {
@@ -56,7 +56,7 @@ a {
 }
 
 .intro-description {
-	width: 925px;
+	width: 550px;
 }
 
 /* NAVIGATION */
@@ -129,7 +129,9 @@ a {
 
 .portfolio-img {
 	display: inline-block;
+	width: 550px;
 }
+
 
 .caption {
 	display: inline-block;
@@ -149,7 +151,7 @@ a {
 	display: inline;
 
 	font-family: Bebas Neue;
-	font-size: 36px;
+	font-size: 34px;
 	font-weight: 700;
 	color: #555;
 }
@@ -185,19 +187,19 @@ a {
 }
 
 .info{
-	margin-top: 15px;
+	margin-top: 1.5em;
 	margin-bottom: 0;
 	font-style: italic;
 }
 
 .text {
-	margin: 10px 0 0;
+	margin: 1em 0 0;
 }
 
 
 .divider{
-	margin-top: 35px;
-	margin-bottom: 80px;
+	margin-top: 2.6em;
+	margin-bottom: 4em;
 	width: 550px;
 	height: 1px;
 	background-color: #a3a3a3;
@@ -207,20 +209,13 @@ a {
 	.caption {
 		margin-left: 0px;
 	}
-
-	.intro-description{
-		width: 70%;
-	}
 }
 
 @media (max-width: 1155px) {
 	.caption {
-		margin-top: 25px;
+		margin-top: 1.5em;
 	}
 
-	.intro-description{
-		width: 550px;
-	}
 }
 
 @media (min-width: 650px) and (max-width: 850px) {
@@ -229,10 +224,11 @@ a {
 		width: 550px;
 		margin-left: auto;
 		margin-right: auto;
+		padding: 0;
 	}
 
 	#intro{
-		left: 0;
+		padding-left: 0;
 	}
 
 	.intro-description{
@@ -252,6 +248,7 @@ a {
 	#portfolio, .col2 {
 		position: static;
 		margin-left: 5%;
+		padding: 0;
 	}
 
 	.portfolio-img {
@@ -259,13 +256,17 @@ a {
 	}
 
 	#intro{
-		left: 0;
+		padding-left: 0;
 	}
 
 	.intro-description{
 		width: 90%;
 		margin-left: auto;
 		margin-right: auto;
+	}
+
+	.divider{
+		width: 100%;
 	}
 }
 
