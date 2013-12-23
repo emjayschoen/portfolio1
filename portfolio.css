@@ -3,16 +3,26 @@ body{
 	padding: 0;
 }
 
-.col2 {
+.col2, #intro {
 	position: relative;
 	left: 280px;
-	width: 0;
 }
+
+@font-face {
+	font-family: Bebas Neue;
+	url('BebasNeue-webfont.ttf');
+}
+
+a {
+	text-decoration: underline;
+	color: inherit;
+}
+
 
 /* HEADER */
 
 #header{
-	margin-bottom: 80px;
+	margin-bottom: 65px;
 	width: 100%;
 	height: 200px;
 	background-color: #f1f1f1;
@@ -34,6 +44,21 @@ body{
 	display: none;
 }
 
+/* INTRO */
+
+#intro {
+	margin-bottom: 60px;
+	color: #555;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 1.5em;
+	font-weight: 300;
+	font-style: italic;
+}
+
+.intro-description {
+	width: 925px;
+}
+
 /* NAVIGATION */
 
 #navigation-bar{
@@ -45,9 +70,12 @@ body{
 	box-sizing: border-box;
 }
 
-.nav{
+.nav, .nav-end{
 	position: relative;
 	height: 32px;
+}
+
+.nav {
 	margin-bottom: 5px;
 }
 
@@ -62,10 +90,12 @@ body{
 
 .nav-title{
 	display: none;
-	position: absolute;
-	right: 32px;
-	margin-top: 7px;
-	height: 16px;
+	float: right;
+	text-align: right;
+	font-family: Bebas Neue;
+	font-size: 24px;
+	margin: 2px 32px 0 0;
+	color: #444;
 	opacity: .8;
 	filter: alpha(opacity=.8);
 }
@@ -86,11 +116,6 @@ body{
 	filter: alpha(opacity=0);
 }
 
-#nav-title1 & .nav-img:hover {
-	display: block;
-	width: 80px;
-}
-
 /* MAIN CONTENT */
 
 #portfolio {
@@ -106,16 +131,85 @@ body{
 	display: inline-block;
 }
 
-
 .caption {
 	display: inline-block;
 	vertical-align: top;
 	margin-left: 60px;
 }
 
+/*.title{
+	height: 25px;
+	top: 0;
+}*/
+
+.title{
+	margin: 0;
+	top: 0;
+
+	display: inline;
+
+	font-family: Bebas Neue;
+	font-size: 36px;
+	font-weight: 700;
+	color: #555;
+}
+
+.expand{
+	height: 12px;
+	padding: 6px 6px;
+	/*-webkit-transition: -webkit-tranform ease-out 1s;
+    -moz-transition: -moz-transform 500ms ease-out 1s;
+    -o-transition: -o-transform 500ms ease-out 1s;*/
+    transition: all .5s;
+	transform: rotate(90deg);
+	-webkit-transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+	-o-transform: rotate(90deg);
+}
+
+.contract{
+	transform: rotate(0);
+	-webkit-transform: rotate(0);
+	-moz-transform: rotate(0);
+	-o-transform: rotate(0);
+}
+
+.title, .expand, .contract{
+	cursor: pointer;
+}
+
+.description{
+	text-align: left;
+	width: 300px;
+	font-family: Georgia, serif;
+}
+
+.info{
+	margin-top: 15px;
+	margin-bottom: 0;
+	font-style: italic;
+}
+
+.text {
+	margin: 10px 0 0;
+}
+
+
+.divider{
+	margin-top: 35px;
+	margin-bottom: 80px;
+	width: 550px;
+	height: 1px;
+	background-color: #a3a3a3;
+}
+
 @media (max-width: 1216px) {
 	.caption {
 		margin-left: 0px;
+	}
+
+	.intro-description{
+		width: 70%;
 	}
 }
 
@@ -123,12 +217,25 @@ body{
 	.caption {
 		margin-top: 25px;
 	}
+
+	.intro-description{
+		width: 550px;
+	}
 }
 
 @media (min-width: 650px) and (max-width: 850px) {
 	#portfolio, .col2 {
 		position: static;
 		width: 550px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	#intro{
+		left: 0;
+	}
+
+	.intro-description{
 		margin-left: auto;
 		margin-right: auto;
 	}
@@ -150,48 +257,21 @@ body{
 	.portfolio-img {
 		width: 95%;
 	}
-}
 
-.title{
-	height: 25px;
-	top: 0;
-}
+	#intro{
+		left: 0;
+	}
 
-.expand{
-	height: 12px;
-	padding: 8px 18px;
-	/*-webkit-transition: -webkit-tranform ease-out 1s;
-    -moz-transition: -moz-transform 500ms ease-out 1s;
-    -o-transition: -o-transform 500ms ease-out 1s;*/
-    transition: all 1s;
-}
-
-.contract{
-	display: none;
-	height: 12px;
-	padding-left: 18px;
-	padding-top: 8px;
-	margin-bottom: 8px;
-}
-
-.title, .expand, .contract{
-	cursor: pointer;
-}
-
-.description{
-	display: none;
-	margin-top: 15px;
-	margin-bottom: 0;
-	text-align: left;
-	width: 300px;
-	font-family: Georgia, serif;
+	.intro-description{
+		width: 90%;
+		margin-left: auto;
+		margin-right: auto;
+	}
 }
 
 
-.divider{
-	margin-top: 35px;
-	margin-bottom: 80px;
-	width: 550px;
-	height: 1px;
-	background-color: #a3a3a3;
+@media (max-width: 400px) {
+	.title{
+		font-size: 32px !important;
+	}
 }
