@@ -52,8 +52,14 @@ $(document).ready(function(){
 	$("#nav-ink-series").hover( function(event){
 		$("#nav-title-ink-series").toggle();
 	});
+	$("#nav-steves-boards").hover( function(event){
+		$("#nav-title-steves-boards").toggle();
+	});
 	$("#nav-findthebest").hover( function(event){
 		$("#nav-title-findthebest").toggle();
+	});
+	$("#nav-pittore-vineyards").hover( function(event){
+		$("#nav-title-pittore-vineyards").toggle();
 	});
 	$("#nav-eat-local").hover( function(event){
 		$("#nav-title-eat-local").toggle();
@@ -84,6 +90,10 @@ $(document).ready(function(){
 	});
 	$("#nav-sound-burst").hover( function(event){
 		$("#nav-title-sound-burst").toggle();
+	});
+
+	$(".detail-link").click( function(event){
+		$(".lightbox").fadeIn(200);
 	});
 	
 });

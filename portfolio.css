@@ -10,7 +10,7 @@ body{
 
 @font-face {
 	font-family: Bebas Neue;
-	url('BebasNeue-webfont.ttf');
+	src: url(BebasNeue-webfont.ttf) format("truetype");
 }
 
 a {
@@ -48,15 +48,18 @@ a {
 
 #intro {
 	margin-bottom: 60px;
+}
+
+#intro, .piece .intro-description {
 	color: #555;
 	font-family: 'Source Sans Pro', sans-serif;
-	font-size: 1.5em;
+	font-size: 1.3em;
 	font-weight: 300;
-	font-style: italic;
 }
 
 .intro-description {
 	width: 550px;
+	line-height: 1.2em;
 }
 
 /* NAVIGATION */
@@ -132,17 +135,15 @@ a {
 	width: 550px;
 }
 
+.detail-link {
+	cursor: pointer;
+}
 
 .caption {
 	display: inline-block;
 	vertical-align: top;
 	margin-left: 60px;
 }
-
-/*.title{
-	height: 25px;
-	top: 0;
-}*/
 
 .title{
 	margin: 0;
@@ -153,7 +154,7 @@ a {
 	font-family: Bebas Neue;
 	font-size: 34px;
 	font-weight: 700;
-	color: #555;
+	color: #444;
 }
 
 .expand{
@@ -176,7 +177,7 @@ a {
 	-o-transform: rotate(0);
 }
 
-.title, .expand, .contract{
+.expand, .contract{
 	cursor: pointer;
 }
 
@@ -192,6 +193,15 @@ a {
 	font-style: italic;
 }
 
+.in-progress{
+	padding: 3px 7px;
+	background-color: #444;
+	color: #fff;
+	font-family: Bebas Neue;
+	font-style: normal;
+	font-size: 22px;
+}
+
 .text {
 	margin: 1em 0 0;
 }
@@ -204,6 +214,82 @@ a {
 	height: 1px;
 	background-color: #a3a3a3;
 }
+
+.lightbox::before {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background-color: #000;
+	opacity: .8;
+	z-index: 500;
+	content: " ";
+}
+
+.lightbox {
+	/*display: none;*/
+	position: absolute;
+	top: 0;
+	left: 50vw;
+	margin-left: -730px;
+	box-sizing: border-box;
+	min-height: 90vh;
+	width: 900px;
+}
+
+.lightbox-container {
+	display: flex;
+	position: relative;
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	min-height: 90vh;
+	padding: 20px 100px;
+	background-color: #fff;
+	z-index: 501;
+}
+
+.control-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	/*background-color: #0bf;
+	opacity: .4;*/
+	z-index: 505;
+}
+
+.control-close {
+	position: absolute;
+	top: 7px;
+	right: 15px;
+	cursor: pointer;
+	font-size: 30px;
+	line-height: 1em;
+	color: #D1D1D1;
+}
+.control-arrow-left {
+	position: absolute;
+	top: 75%;
+	left: 95px;
+	cursor: pointer;
+	font-size: 35px;
+	line-height: 1em;
+	color: #5A5A5A;
+	transition: all .3 ease-in-out;
+}
+
+.control-arrow-left:hover, .control-arrow-right:hover {
+	color: #3D8CDA;
+}
+
+.lightbox-img {
+	margin: auto;
+}
+
+/* MOBILE */
 
 @media (max-width: 1216px) {
 	.caption {
@@ -259,8 +345,15 @@ a {
 		padding-left: 0;
 	}
 
-	.intro-description{
+	#intro .intro-description {
 		width: 90%;
+	}
+
+	.piece .intro-description {
+		width: 100%;
+	}
+
+	.intro-description{
 		margin-left: auto;
 		margin-right: auto;
 	}
