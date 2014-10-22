@@ -1,19 +1,10 @@
 $(document).ready(function(){
 
+	var WORK_LINK = "#work";
+	var SCROLL_DURATION = 800;
 
-	var $bde = $("#best-designer-ever");
-	var $bde_hover = $("#best-designer-ever-hover");
-
-	$.localScroll({duration:800});
-	$bde.hover( function(event){
-		$(this).hide();
-		$bde_hover.show();
-	});
-	
-	$bde_hover.mouseout( function(event){
-		$(this).hide();
-		$bde.show();
-	});
+	// Control smooth scrolling
+	$.localScroll({duration:SCROLL_DURATION});
 	
 	/*$(".expand, .contract, .title").click(toggleDescription);
 	
@@ -24,6 +15,7 @@ $(document).ready(function(){
 	}*/
 	
 	
+	// Fix the navigation bar to the screen while scrolling
 	moveScroller();
 	
 	function moveScroller() {
@@ -49,51 +41,103 @@ $(document).ready(function(){
 		move();
 	}
 	
-	$("#nav-ink-series").hover( function(event){
-		$("#nav-title-ink-series").toggle();
-	});
-	$("#nav-steves-boards").hover( function(event){
-		$("#nav-title-steves-boards").toggle();
-	});
-	$("#nav-findthebest").hover( function(event){
-		$("#nav-title-findthebest").toggle();
-	});
-	$("#nav-pittore-vineyards").hover( function(event){
-		$("#nav-title-pittore-vineyards").toggle();
-	});
-	$("#nav-eat-local").hover( function(event){
-		$("#nav-title-eat-local").toggle();
-	});
-	$("#nav-social-pool").hover( function(event){
-		$("#nav-title-social-pool").toggle();
-	});
-	$("#nav-worthalter-site").hover( function(event){
-		$("#nav-title-worthalter-site").toggle();
-	});
-	$("#nav-city-nights").hover( function(event){
-		$("#nav-title-city-nights").toggle();
-	});
-	$("#nav-eyes").hover( function(event){
-		$("#nav-title-eyes").toggle();
-	});
-	$("#nav-fly").hover( function(event){
-		$("#nav-title-fly").toggle();
-	});
-	$("#nav-self-portraits").hover( function(event){
-		$("#nav-title-self-portraits").toggle();
-	});
-	$("#nav-beats").hover( function(event){
-		$("#nav-title-beats").toggle();
-	});
-	$("#nav-conquer").hover( function(event){
-		$("#nav-title-conquer").toggle();
-	});
-	$("#nav-sound-burst").hover( function(event){
-		$("#nav-title-sound-burst").toggle();
-	});
+	
 
 	$(".detail-link").click( function(event){
 		$(".lightbox").fadeIn(200);
 	});
+
+
+	// Highlight the active section in the nav
+
+	// Used to turn off content-sensitive highlighting when the nav is clicked.
+	// Otherwise the smooth scroller highlights incorrect nav items
+	var navClicked = false; 
+
+	var $aChildren = $(".nav").children(); // find the a children of the list items
+    var aArray = []; // create the empty aArray
+    var $navWork;
+    for (var i=0; i < $aChildren.length; i++) {    
+        var aChild = $aChildren[i];
+        var ahref = $(aChild).attr('href');
+        if(ahref == WORK_LINK){
+        	$navWork = $(aChild);
+        }
+        aArray.push(ahref);
+    } // this for loop fills the aArray with attribute href values
+
+    $(window).scroll(function(){
+    	if(!navClicked) {
+	        var windowPos = $(window).scrollTop(); // get the offset of the window from the top of page
+	        var windowHeight = $(window).height(); // get the height of the window
+	        var docHeight = $(document).height();
+
+	        for (var i=0; i < aArray.length; i++) {
+	            var theID = aArray[i];
+	            var divPos = $(theID).offset().top; // get the offset of the div from the top of page
+	            var divHeight = $(theID).height(); // get the height of the div in question
+	            if (windowPos >= divPos && windowPos < (divPos + divHeight)) {
+	                $("a[href='" + theID + "']").addClass("nav-active");
+
+		            // Expand nav-works if we are in the Work section
+		            if(theID == WORK_LINK) {
+		            	expandNavWorks();
+		            }
+	            } else {
+	                $("a[href='" + theID + "']").removeClass("nav-active");
+	            }
+	        }
+
+	        // If we're at the top of the screen, Intro should be active
+	        var $navFirstChild = $(".nav:first-child a");
+	        var hrefFirst = $navFirstChild.attr("href");
+	        if(windowPos < $(hrefFirst).offset().top) {
+	        	if (!$navFirstChild.hasClass("nav-active")) {
+	                var $navActiveCurrent = $(".nav-active");
+	               	$navActiveCurrent.removeClass("nav-active");
+	                $navFirstChild.addClass("nav-active");
+	            }
+	            contractNavWorks();
+	        }
+
+	        // If we're at the bottom of the screen, 
+	        if(windowPos + windowHeight == docHeight) {
+	            if (!$(".nav:last-child a").hasClass("nav-active")) {
+	                var $navActiveCurrent = $(".nav-active");
+	               	$navActiveCurrent.removeClass("nav-active");
+	                $("nav li:last-child a").addClass("nav-active");
+	            }
+	        }
+	    }
+    });
+
+	var $navWorks = $(".nav-works");
+	function expandNavWorks(){
+		$navWorks.slideDown(1000);
+	}
+
+	function contractNavWorks(){
+		$navWorks.slideUp(800);
+	}
+
+	$aChildren.click(function(event){
+		navClicked = true;
+		var $activeNav = $(this);
+
+		if(!$activeNav.hasClass("nav-active")) {
+            var $navActiveCurrent = $(".nav-active");
+            $navActiveCurrent.removeClass("nav-active");
+            $activeNav.addClass("nav-active");
+        }
+
+
+		setTimeout(function(){
+			navClicked = false;
+	        if($activeNav.attr('href') == WORK_LINK) {
+	        	expandNavWorks();
+	        }
+		}, 800);
+	});
+	//$navWork.click(expandNavWorks);
 	
 });

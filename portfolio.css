@@ -1,11 +1,16 @@
 body{
 	margin: 0;
 	padding: 0;
+	font-size: 16px;
 }
 
 .col2, #intro {
 	position: relative;
-	padding-left: 280px;
+	margin-left: 290px;
+}
+
+.col2, #intro, #contact {
+	width: 550px;
 }
 
 @font-face {
@@ -22,10 +27,11 @@ a {
 /* HEADER */
 
 #header{
-	margin-bottom: 65px;
 	width: 100%;
-	height: 200px;
+	height: 220px;
 	background-color: #f1f1f1;
+	background: url("images/header.jpg") no-repeat left top;
+	background-size: cover;
 }
 
 #ux-design{
@@ -35,74 +41,147 @@ a {
 }
 
 #best-designer-ever, #best-designer-ever-hover{
-	margin-top: 10px;
-	height: 55px;
+	margin-top: 60px;
+	height: 40px;
 	cursor: pointer;
 }
-
-#best-designer-ever-hover{
-	display: none;
+#best-designer-ever:hover{
+	opacity: .5;
+	filter: alpha(opacity=.5);
 }
 
 /* INTRO */
 
 #intro {
-	margin-bottom: 60px;
+	padding-top: 50px;
+	padding-bottom: 2.5em;
 }
 
-#intro, .piece .intro-description {
-	color: #555;
-	font-family: 'Source Sans Pro', sans-serif;
-	font-size: 1.3em;
-	font-weight: 300;
+.intro-description:first-child {
+	margin-top: 11px;
 }
 
 .intro-description {
-	width: 550px;
+	margin: 1.5em 0;
+	color: #555;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 1.25em;
+	font-weight: 300;
 	line-height: 1.2em;
+}
+
+.transition {
+	font-style: italic;
+}
+
+.intro-img {
+	width: 100px;
+}
+#intro1 .intro-img {
+	background: url("images/intro1.png") no-repeat center center;
+}
+#intro2 .intro-img {
+	background: url("images/intro2.png") no-repeat center center;
+}
+#intro3 .intro-img {
+	background: url("images/intro3.png") no-repeat center center;
+}
+#intro4 .intro-img {
+	background: url("images/intro4.png") no-repeat center center;
 }
 
 /* NAVIGATION */
 
+#nav-anchor {
+	margin-top: 50px;
+	width: 186px;
+	float: left;
+	clear: both;
+}
+
 #navigation-bar{
 	float: left;
 	position: relative;
+	margin-top: 15px;
 	padding-right: 8px;
-	width: 186px;
-	border-right: 3px solid #3b71a6;
+	width: 200px;
+	border-right: 4px solid #ca847b;
 	box-sizing: border-box;
+	z-index: 1;
+	clear: both;
 }
-
-.nav, .nav-end{
-	position: relative;
-	height: 32px;
+#navigation-bar a {
+	text-decoration: none;
+}
+#navigation-bar ul {
+	margin: 0;
+	padding: 0;
 }
 
 .nav {
-	margin-bottom: 5px;
+	margin: 0;
+	padding: 10px 0;
+	font-family: Bebas Neue;
+	font-size: 1.75em;
+	line-height: 22px;
+	font-weight: 500;
+	color: #444;
+	text-align: right;
+	list-style: none;
+	cursor: pointer;
+}
+.nav:hover {
+	opacity: .6;
+	filter: alpha(opacity=.6);
+}
+.nav:first-child {
+	padding-top: 0;
+}
+.nav:last-child {
+	padding-bottom: 0;
+}
+.nav-active {
+	color: #C0796B;
 }
 
+.nav-divider {
+	width: 32px;
+	height: 1px;
+	background-color: #444;
+	margin-left: auto;
+}
+
+.nav-works {
+	margin-bottom: 10px;
+	display: none;
+}
+.nav-piece{
+	position: relative;
+	height: 32px;
+}
 .nav-img{
 	display: inline;
 	position: absolute;
 	right: 0;
 	height: 32px;
-	border: 1px solid #d1d1d1;
+	/* border: 1px solid #d1d1d1; */
 	box-sizing: border-box;
 }
-
 .nav-title{
 	display: none;
 	float: right;
 	text-align: right;
 	font-family: Bebas Neue;
-	font-size: 24px;
+	font-size: 1.5em;
 	margin: 2px 32px 0 0;
+	padding-right: 3px;
 	color: #444;
 	opacity: .8;
 	filter: alpha(opacity=.8);
 }
-
+.nav-piece:hover .nav-title {
+	display: block;
+}
 .highlight{
 	position: absolute;
 	right: 0;
@@ -113,17 +192,20 @@ a {
 	opacity: 0;
 	filter: alpha(opacity=0);
 }
-
 .highlight:hover{
 	opacity: .5;
-	filter: alpha(opacity=0);
+	filter: alpha(opacity=.5);
 }
 
 /* MAIN CONTENT */
 
-#portfolio {
+#work {
 	position: absolute;
-	left: 280px;
+	left: 290px;
+}
+
+#work-divider {
+	margin-top: 0;
 }
 
 .piece {
@@ -141,8 +223,9 @@ a {
 
 .caption {
 	display: inline-block;
+	width: 300px;
+	margin: 0 60px;
 	vertical-align: top;
-	margin-left: 60px;
 }
 
 .title{
@@ -152,7 +235,7 @@ a {
 	display: inline;
 
 	font-family: Bebas Neue;
-	font-size: 34px;
+	font-size: 2.25em;
 	font-weight: 700;
 	color: #444;
 }
@@ -183,8 +266,8 @@ a {
 
 .description{
 	text-align: left;
-	width: 300px;
 	font-family: Georgia, serif;
+	font-size: 1em;
 }
 
 .info{
@@ -208,7 +291,7 @@ a {
 
 
 .divider{
-	margin-top: 2.6em;
+	margin-top: 2.5em;
 	margin-bottom: 4em;
 	width: 550px;
 	height: 1px;
@@ -223,6 +306,7 @@ a {
 	width: 100%;
 	background-color: #000;
 	opacity: .8;
+	filter: alpha(opacity=.8);
 	z-index: 500;
 	content: " ";
 }
@@ -257,7 +341,8 @@ a {
 	width: 100%;
 	height: 100%;
 	/*background-color: #0bf;
-	opacity: .4;*/
+	opacity: .4;
+	filter: alpha(opacity=.4);*/
 	z-index: 505;
 }
 
@@ -291,76 +376,74 @@ a {
 
 /* MOBILE */
 
-@media (max-width: 1216px) {
-	.caption {
-		margin-left: 0px;
-	}
-}
-
-@media (max-width: 1155px) {
-	.caption {
-		margin-top: 1.5em;
-	}
-
-}
-
-@media (min-width: 650px) and (max-width: 850px) {
-	#portfolio, .col2 {
-		position: static;
+@media (max-width: 1300px) {
+	#work {
 		width: 550px;
-		margin-left: auto;
-		margin-right: auto;
-		padding: 0;
+	}
+	#work {
+		left: 30%;
+	}
+	.col2, #intro {
+		margin-left: 30%;
 	}
 
-	#intro{
-		padding-left: 0;
+	.caption {
+		margin: 1.5em 0 0;
+		width: auto;
 	}
 
-	.intro-description{
-		margin-left: auto;
-		margin-right: auto;
-	}
 }
 
-@media (max-width: 850px) {
+@media (max-width: 925px) {
+	#header{
+		height: 300px;
+		background: url("images/header-medium.jpg") no-repeat left top;
+		background-size: 1000px 300px;
+	}
+	#best-designer-ever, #best-designer-ever-hover{
+		margin-top: 83px;
+		height: 50px;
+	}
 	#navigation-bar {
 		display: none;
 	}
 }
 
-@media (max-width: 650px) {
-
-	#portfolio, .col2 {
+@media (min-width: 650px) and (max-width: 925px) {
+	#work, .col2 {
 		position: static;
-		margin-left: 5%;
+		margin-left: auto;
+		margin-right: auto;
 		padding: 0;
 	}
 
-	.portfolio-img {
-		width: 95%;
-	}
-
 	#intro{
-		padding-left: 0;
-	}
-
-	#intro .intro-description {
-		width: 90%;
-	}
-
-	.piece .intro-description {
-		width: 100%;
-	}
-
-	.intro-description{
 		margin-left: auto;
 		margin-right: auto;
 	}
+}
 
-	.divider{
+@media (max-width: 650px) {
+
+	#work, .col2 {
+		position: static;
+		width: 90%;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 0;
+	}
+
+	#intro {
+		width: 90%;
+		margin-left: auto;
+		margin-right: auto;
+		padding-left: 0;
+	}
+
+	.portfolio-img, .divider, #contact {
 		width: 100%;
 	}
+
 }
 
 
