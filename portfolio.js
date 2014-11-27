@@ -1,7 +1,9 @@
 $(document).ready(function(){
 
+
 	var WORK_LINK = "#work";
 	var SCROLL_DURATION = 800;
+	var MOBILE_NAV_BREAKPOINT = 925;
 
 	// Control smooth scrolling
 	$.localScroll({duration:SCROLL_DURATION});
@@ -15,14 +17,17 @@ $(document).ready(function(){
 	}*/
 	
 	
-	// Fix the navigation bar to the screen while scrolling
+	// Fix the nav bar to the screen while scrolling
 	moveScroller();
 	
 	function moveScroller() {
 		var move = function() {
 			var st = $(window).scrollTop();
 			var ot = $("#nav-anchor").offset().top;
-			var s = $("#navigation-bar");
+			var s = $("#nav-bar");
+			var ww = window.innerWidth;
+			/*console.log("st: "+st);
+			console.log("ot: "+ot);*/
 			if(st > ot) {
 				s.css({
 					position: "fixed",
@@ -82,7 +87,7 @@ $(document).ready(function(){
 	                $("a[href='" + theID + "']").addClass("nav-active");
 
 		            // Expand nav-works if we are in the Work section
-		            if(theID == WORK_LINK && navContracted) {
+		            if(theID == WORK_LINK && navContracted && window.innerWidth > MOBILE_NAV_BREAKPOINT) {
 		            	expandNavWorks();
 		            }
 	            } else {
@@ -99,7 +104,9 @@ $(document).ready(function(){
 	               	$navActiveCurrent.removeClass("nav-active");
 	                $navFirstChild.addClass("nav-active");
 	            }
-	            contractNavWorks();
+	            if(window.innerWidth > MOBILE_NAV_BREAKPOINT){
+	            	contractNavWorks();
+	            }
 	        }
 
 	        // If we're at the bottom of the screen, 
@@ -124,6 +131,11 @@ $(document).ready(function(){
 		navContracted = true;
 	}
 
+	function toggleNavWorks(){
+		$navWorks.slideToggle(800);
+		navContracted = !navContracted;
+	}
+
 	$aChildren.click(function(event){
 		navClicked = true;
 		var $activeNav = $(this);
@@ -137,27 +149,25 @@ $(document).ready(function(){
 
 		setTimeout(function(){
 			navClicked = false;
-	        if($activeNav.attr('href') == WORK_LINK && navContracted) {
+	        if($activeNav.attr('href') == WORK_LINK && navContracted && window.innerWidth > MOBILE_NAV_BREAKPOINT) {
 	        	expandNavWorks();
 	        }
 		}, 800);
 	});
 
 
-	// Collapse thumbnails of nav-pieces in the navigation bar as necessary according to window height
+	// Collapse thumbnails of nav-pieces in the nav bar as necessary according to window height
 	
 	// Need to get the height of a nav-collapsed element,
 	// So create a hidden element and record the height
 
 
-
-	/*var $col = $(document.createElement('div')).hide().addClass("nav-collapsed");
-	$(".nav-works").append($col);
-	var collapseHeight = $col.height();
-	$col.remove();
-	*/
-
 	var MIN_HEIGHT = 12;
+	var $html = $('html');
+	var $mainWrap = $("#main-wrap");
+	var $navOpenBtn = $("#nav-open-btn");
+	var $navCloseBtn = $("#nav-close-btn");
+	var $nav = $("#nav");
 	var $navWorks = $(".nav-works");
 	var $navPieces = $(".nav-piece");
 	var $navImages = $(".nav-img");
@@ -165,101 +175,62 @@ $(document).ready(function(){
 	var navPieceHeight = $navPieces.height();
 	var navPieceWidth = navPieceHeight;
 	var numNavPieces = $navPieces.length;
-	var navBarHeight = $("#navigation-bar").height() 
-		+ parseInt($("#navigation-bar").css("marginTop"));
+	var navBarHeight = $("#nav-bar").height() 
+		+ parseInt($("#nav-bar").css("marginTop"));
 	var extraMargin = parseInt($(".nav-works").css("marginBottom"));
 	var fullNavHeight = navBarHeight + navPieceHeight * numNavPieces + extraMargin;
 	var currNavHeight = fullNavHeight;
 
-	/*
-	var minNavHeight = navBarHeight + collapseHeight * $navPieces.length + extraMargin;
-	var maxNavHeight = fullNavHeight;
-	var $curr = $navPieces.last();
-	var collapseDeltaHeight = $(".nav-piece").height() - collapseHeight;
-	console.log("Full Nav: "+fullNavHeight);
-	console.log("Min Nav: "+minNavHeight);
-	console.log("Max Nav: "+maxNavHeight);
-
-	var atFirst = false;*/
 
 
 	adjustNav();
 
 	function adjustNav() {
 		var windowHeight = window.innerHeight;
+		
+		// Mobile nav's height is set to the exact screen height
+		if(window.innerWidth <= MOBILE_NAV_BREAKPOINT){
+			$nav.css("height", window.innerHeight);
+		}
+		else{
 
-		if(windowHeight < fullNavHeight) {
-			var availableHeight = (windowHeight - navBarHeight - extraMargin - navPieceHeight);
-			var dHeight = Math.floor( (availableHeight) / numNavPieces );
-			if(dHeight >= MIN_HEIGHT) {
-				$navWorks.height(availableHeight + navPieceHeight - dHeight - extraMargin);
-				$navPieces.height(dHeight);
-				$navImages.css("width", navPieceWidth);
-				$highlights.css("width", navPieceWidth);
+			// Adjust the size of nav thumbnails to fit height if non-mobile
+			if(windowHeight < fullNavHeight) {
+				var availableHeight = (windowHeight - navBarHeight - extraMargin - navPieceHeight);
+				var dHeight = Math.floor( (availableHeight) / numNavPieces );
+				if(dHeight >= MIN_HEIGHT) {
+					$navWorks.height(availableHeight + navPieceHeight - dHeight - extraMargin);
+					$navPieces.height(dHeight);
+					$navImages.css("width", navPieceWidth);
+					$highlights.css("width", navPieceWidth);
+				}
+
 			}
+			else {
+				$navWorks.height("");
+				$navPieces.height(navPieceHeight);
+			}
+		}
 
-		}
-		else {
-			$navWorks.height("");
-			$navPieces.height(navPieceHeight);
-		}
 	}
 
-	/* OLD ADJUST NAV
+	// Toggles the mobile nav slider
+	$navOpenBtn.click( function(event) {
+		$html.toggleClass("js-nav-open");
+	});
 
-	function adjustNav(){
-		console.log("ADJUST FUNCTION");
-		var windowHeight = window.innerHeight;
+	$mainWrap.click( function(event) {
+		$html.removeClass("js-nav-open");
+	});
 
-		// Handle Collapsing
+	// Mobile nav needed anchor tags to work with no-JS
+	// When JS is active, we need to remove them so localScroll doesn't abuse them
+	$($navOpenBtn, $navCloseBtn).removeAttr("href");
+	$("#expand-nav-works").click( function(event) {
+		$(this).toggleClass("nav-works-open");
+		toggleNavWorks();
+	});
 
-
-		if(windowHeight <= (minNavHeight + collapseDeltaHeight) ) {
-			$navPieces.addClass("nav-collapsed");
-			$curr = $navPieces.first();
-			atFirst = true;
-			fullNavHeight = minNavHeight;
-			console.log("At Min Height");
-		}
-		else {
-			while(windowHeight < (fullNavHeight + collapseDeltaHeight) ){
-				console.log("Contracted");
-				console.log("wh: "+windowHeight);
-				console.log("fnh: " + fullNavHeight + " to " + (fullNavHeight-collapseDeltaHeight));
-
-				$curr.addClass("nav-collapsed");
-				$curr = $curr.prev();
-				fullNavHeight -= collapseDeltaHeight;
-			}
-		}
-		
-		// Handle Expanding
-		if(windowHeight >= (maxNavHeight + collapseDeltaHeight) ) {
-			$navPieces.removeClass("nav-collapsed");
-			$curr = $navPieces.last();
-			fullNavHeight = maxNavHeight;
-			console.log("At Max Height");
-		}
-		else {
-			while(windowHeight > (fullNavHeight + 2*collapseDeltaHeight) ) {
-				console.log("Expanded");
-				console.log("wh: "+windowHeight);
-				console.log("fnh: " + fullNavHeight + " to " + (fullNavHeight+collapseDeltaHeight));
-
-				if(atFirst){
-					atFirst = false;
-				}
-				else {
-					$curr = $curr.next();
-				}
-				$curr.removeClass("nav-collapsed");
-				fullNavHeight += collapseDeltaHeight;
-			}
-		}
-
-
-
-	}*/
 
 	// Only call resize function after resizing is complete
 	var waitForFinalEvent = (function () {
@@ -282,6 +253,11 @@ $(document).ready(function(){
 			adjustNav();
 	    }, 500, "Collapse");
 	});
+
+
+	// Let the document know javascript is ready,
+	// Used by mobile nav.
+	$html.addClass("js-ready");
 
 	
 });
